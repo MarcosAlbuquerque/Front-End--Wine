@@ -6,7 +6,7 @@ export default function BodyPagination(props: JSX.IntrinsicAttributes & IDataAPI
   return (
     <Article>
       <P>
-        <strong>49</strong> produtos encontrados
+        <strong>{props.totalItems}</strong> produtos encontrados
       </P>
       <Div>
         {props.items.map((item) => (
