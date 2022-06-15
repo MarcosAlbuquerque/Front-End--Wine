@@ -1,180 +1,18 @@
 import { useRouter } from 'next/router';
-import Link from 'next/link';
-import styled from 'styled-components';
-import Header from '../../components/Header';
-import { StyledGlobal } from '../../pages/';
-import { StyledMain } from '../../components/Body';
-import { StyledAside } from '../../components/BodyCategories';
-import { StyledArticle } from '../../components/BodyPagination';
 import Head from 'next/head';
-
-const StyledLinkBack = styled.a`
-  text-decoration: none;
-  color: #111111;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  font-weight: 400;
-  & > img {
-    margin-right: 15%;
-  }
-`;
-
-const StyledP = styled.p`
-  & > em {
-    font-style: normal;
-    font-family: 'Lato';
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
-    color: #c81a78;
-  }
-  & > em:nth-child(3) {
-    color: #888888;
-  }
-`;
-
-const StyleArticleExtend = styled(StyledArticle)`
-  & {
-    width: 80%;
-  }
-
-  & > div {
-    padding: 2% 0;
-  }
-
-  & > div {
-    display: flex;
-    gap: 15%;
-  }
-
-  & h1 {
-    font-family: Lato;
-    font-weight: 700;
-    font-size: 30px;
-    color: #111111;
-    margin: 0;
-  }
-`;
-
-const StyledDiv = styled.div`
-  & > div:nth-child(4) {
-    font-family: 'Lato';
-    font-size: 24px;
-
-    & > h2 {
-      color: #c81a78;
-      margin-bottom: 0;
-
-      & span {
-        font-size: 46px;
-      }
-    }
-    & > h3 {
-      margin: 0;
-      font-size: 16px;
-      color: #888;
-    }
-  }
-
-  & > div:nth-child(5) {
-    font-family: 'Neo Sans Std Tr', sans-serif;
-
-    & > p {
-      font-family: 'Saira';
-    }
-  }
-`;
-
-const StyledUl = styled.ul`
-  & {
-    list-style-type: none;
-    display: flex;
-    padding: 0;
-    align-items: center;
-  }
-
-  & li {
-    margin-right: 10px;
-    font-family: 'Lato';
-    font-size: 15px;
-    font-weight: 400;
-    color: #555555;
-    display: flex;
-  }
-
-  & li > img {
-    width: 16px;
-    height: 16px;
-  }
-`;
-
-const StyledButtonAdd = styled.div`
-  background: #7ebc43;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.35);
-  border-radius: 4px;
-  width: 60%;
-  align-items: center;
-  height: 56px;
-
-  & {
-    display: flex;
-    justify-content: space-evenly;
-
-    & > span {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 30%;
-
-      & > em {
-        font-style: normal;
-        font-weight: 400;
-        font-family: 'Lato';
-
-        color: white;
-      }
-    }
-
-    & > hr {
-      border: 1px solid white;
-      height: 33px;
-      opacity: 0.1;
-      margin: 0;
-    }
-
-    & > button {
-      border: none;
-      font-family: 'Lato';
-      font-weight: 700;
-      font-size: 16px;
-      color: white;
-      background-color: transparent;
-    }
-  }
-`;
-
-const StyledButtonAddDescrease = styled.div`
-  background-image: url('/Rectangle-desactive.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: white;
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: 600;
-  padding: 4px 12px;
-`;
-
-const StyledButtonAddIncrease = styled.div`
-  background-image: url('/Rectangle-active.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: white;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 20px;
-  padding: 4px 10px;
-`;
+import Link from 'next/link';
+import Header from '../../components/Header';
+import Style from '../../styles';
+import {
+  ArticleExtend,
+  ButtonAdd,
+  ButtonAddDescrease,
+  ButtonAddIncrease,
+  Div,
+  LinkBack,
+  P,
+  Ul,
+} from '../../styles/body/Product';
 
 export default function About() {
   const router = useRouter();
@@ -195,18 +33,18 @@ export default function About() {
         />
         <link href='http://fonts.cdnfonts.com/css/saira' rel='stylesheet' />
       </Head>
-      <StyledGlobal />
+      <Style.Global />
       <Header />
-      <StyledMain>
-        <StyledAside style={{ width: '10%' }}>
+      <Style.Body.Section>
+        <Style.Body.Categories.Aside style={{ width: '10%' }}>
           <Link href='/'>
-            <StyledLinkBack>
+            <LinkBack>
               <img src='/backArrow.svg' alt='voltar para página anterior' />
               Voltar
-            </StyledLinkBack>
+            </LinkBack>
           </Link>
-        </StyledAside>
-        <StyleArticleExtend>
+        </Style.Body.Categories.Aside>
+        <ArticleExtend>
           <div>
             <div>
               <img
@@ -214,12 +52,12 @@ export default function About() {
                 alt='teste'
               />
             </div>
-            <StyledDiv>
-              <StyledP>
+            <Div>
+              <P>
                 <em>Vinhos</em> &gt; <em>Estados Unidos</em> &gt; <em>Califórnia</em>
-              </StyledP>
+              </P>
               <h1>Apothic Red 2019</h1>
-              <StyledUl>
+              <Ul>
                 <li>
                   <img
                     src='https://img.wine.com.br/fenix/image/flags/rounded/portugal.svg'
@@ -237,7 +75,7 @@ export default function About() {
                 </li>
                 <span>(2)</span>
                 <span></span>
-              </StyledUl>
+              </Ul>
               <div>
                 <h2>
                   R$<span>63</span>,67
@@ -254,19 +92,19 @@ export default function About() {
                   armazenavam seus cobiçados vinhos.
                 </p>
               </div>
-              <StyledButtonAdd>
+              <ButtonAdd>
                 <span>
-                  <StyledButtonAddDescrease>-</StyledButtonAddDescrease>
+                  <ButtonAddDescrease>-</ButtonAddDescrease>
                   <em>1</em>
-                  <StyledButtonAddIncrease>+</StyledButtonAddIncrease>
+                  <ButtonAddIncrease>+</ButtonAddIncrease>
                 </span>
                 <hr />
                 <button>Adicionar</button>
-              </StyledButtonAdd>
-            </StyledDiv>
+              </ButtonAdd>
+            </Div>
           </div>
-        </StyleArticleExtend>
-      </StyledMain>
+        </ArticleExtend>
+      </Style.Body.Section>
     </>
   );
 }

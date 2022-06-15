@@ -1,16 +1,11 @@
-import styled from 'styled-components'
-import { StyledMain } from '../components/Body'
-
-
-
+import Style from '../styles';
 
 export default function BodyProductDetails() {
-  console.log('teste')
+  console.log('teste');
 
   return (
-    <StyledMain>
+    <Style.Body.Section>
       <h3>detalhes do produto - componente</h3>
-
-    </StyledMain>
-  )
+    </Style.Body.Section>
+  );
 }

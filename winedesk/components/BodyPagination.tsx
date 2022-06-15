@@ -1,20 +1,16 @@
-import styled from 'styled-components'
-import BodyPaginationCard from './BodyPaginationCard'
+import { IDataAPI, IDataAPIItems } from '../interfaces';
+import BodyPaginationCard from './BodyPaginationCard';
+import { Article, P } from '../styles/body/pagination';
 
-export const StyledArticle = styled.article`
-  width: 60%;
-`
-
-const StyledP = styled.p`
- font-family: Lato;
-`
-
-export default function BodyPagination() {
+export default function BodyPagination(props: JSX.IntrinsicAttributes & IDataAPI) {
   return (
-    <StyledArticle>
-      {/* inplementar logica de contagem de produtos */}
-      <StyledP><strong>49</strong> produtos encontrados</StyledP>
-      <BodyPaginationCard />
-    </StyledArticle>
-  )
+    <Article>
+      <P>
+        <strong>49</strong> produtos encontrados
+      </P>
+      {props.items.map((item) => (
+        <BodyPaginationCard {...item} key={item.id} />
+      ))}
+    </Article>
+  );
 }

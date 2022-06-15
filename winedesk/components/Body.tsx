@@ -1,21 +1,19 @@
-import styled from 'styled-components'
-import BodyCategories from './BodyCategories'
-import BodyPagination from './BodyPagination'
+import { IDataAPI } from '../interfaces';
+import BodyCategories from './BodyCategories';
+import BodyPagination from './BodyPagination';
+import Header from './Header';
+import Style from '../styles';
+import { Section } from '../styles/body';
 
-
-export const StyledMain = styled.section`
-  padding: 100px 0;
-  width: 90%;
-  display: flex;
-  justify-content: center;
-`
-
-
-export default function Body() {
+export default function Body(props) {
   return (
-    <StyledMain>
-      <BodyCategories />
-      <BodyPagination />
-    </StyledMain>
-  )
+    <>
+      <Style.Global />
+      <Header />
+      <Section>
+        <BodyCategories />
+        <BodyPagination {...props} />
+      </Section>
+    </>
+  );
 }
